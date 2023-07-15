@@ -15,10 +15,10 @@
       apt: upgrade=security
       when: ansible_distribution == "Ubuntu"
 
-      - name: reboot the server if a restart is required by apt
-        ansible.builtin.reboot:
-        when: reboot_required_file.stat.exists == true
+    - name: reboot the server if a restart is required by apt
+      ansible.builtin.reboot:
+      when: reboot_required_file.stat.exists == true
         
-        -name: Remove dependency packages no longer required
-        autoremove: yes
-        when: ansible_distribution == "Ubuntu"``
+    -name: Remove dependency packages no longer required
+      autoremove: yes
+      when: ansible_distribution == "Ubuntu"``
