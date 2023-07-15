@@ -22,4 +22,4 @@
     - name: Remove dependency packages no longer required
       ansible.builtin.apt:
       autoremove: yes
-      when: ansible_distribution == "Ubuntu"``
+       
