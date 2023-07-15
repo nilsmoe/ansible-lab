@@ -1,0 +1,28 @@
+# Updating and patcinig Ubuntu servers
+# Usage: ansible-playbook -i hosts ubuntu_update.yml 
+---
+- hosts: ubuntu
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes cache_valid_time=3600
+
+    - name: Upgrade all packages
+      apt: upgrade=dist
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Install security updates
+      apt: upgrade=security
+      when: ansible_distribution == "Ubuntu"
+
+      - name: reboot the server if a restart is required by apt
+        shell: sleep 2 && shutdown -r now "Ansible updates triggered"
+        async: 1
+        poll: 0
+        ignore_errors: true
+        when: ansible_reboot_pending|bool
+        register: reboot
+        
+        -name: Remove dependency packages no longer required
+        autoremove: yes
+        when: ansible_distribution == "Ubuntu"``
