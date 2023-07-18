@@ -8,7 +8,7 @@
     - name: Update apt cache
       apt: update_cache=yes cache_valid_time=3600
     
-    -name: remove apt lock file
+    - name: remove apt lock file
       file:
         path: /var/lib/dpkg/lock
         state: absent
