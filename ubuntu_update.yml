@@ -15,11 +15,15 @@
       when: ansible_distribution == "Ubuntu"
 
     - name: Upgrade all packages
-      apt: upgrade=dist
-      when: ansible_distribution == "Ubuntu"
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu" 
+      
 
     - name: Install security updates
-      apt: upgrade=security
+      ansible.bultin.apt: 
+         upgrade: security
       when: ansible_distribution == "Ubuntu"
 
     - name: Check if a reboot is required.
