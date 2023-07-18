@@ -1,0 +1,17 @@
+# create new user and add to sudo group and add ssh key
+
+---
+- hosts: ubuntu 
+  become: yes
+  become_user: root
+  vars:
+    created_username: ansible
+
+  tasks:
+   - name: Install aptitude 
+     apt: 
+      name: aptitude
+      state: latest
+      update_cache: yes
+        
+
