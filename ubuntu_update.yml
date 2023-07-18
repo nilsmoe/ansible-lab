@@ -22,8 +22,9 @@
       
 
     - name: Install security updates
-      ansible.bultin.apt: 
-         upgrade: security
+      ansible.builtin.apt:
+        upgrade: security
+        update_cache: yes
       when: ansible_distribution == "Ubuntu"
 
     - name: Check if a reboot is required.
