@@ -19,6 +19,13 @@
         upgrade: dist
         update_cache: yes
       when: ansible_distribution == "Ubuntu"
+ 
+ # Update security packages only
+    - name: Upgrade all packages
+      ansible.builtin.apt:
+        upgrade: security
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
 
     - name: Check if a reboot is required.
       ansible.builtin.stat:
