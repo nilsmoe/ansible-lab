@@ -1,7 +1,7 @@
 ---
 # shutdown linux host
 -- name: shutdown linux host
-  hosts: ubt_shutdwn
+  hosts: kubernetes
   become: yes
   tasks:
     - name: shutdown linux host
