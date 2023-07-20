@@ -13,5 +13,23 @@
       name: aptitude
       state: latest
       update_cache: yes
-        
+
+    - name: setup passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+    
+    -name: create a new user with sudo privileges
+      user: 
+        name: "{{ created_username }}"
+        state: present
+        groups: sudo
+        append: yes
+        createhome: yes
+    
+    
+
 
