@@ -3,6 +3,6 @@
 -hosts: kubernetes
  become: yes
  become_user: root
-  tasks:
+ tasks:
     - name: shutdown linux host
       shell: shutdown -h now
