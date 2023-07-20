@@ -5,6 +5,6 @@
   tasks:
     - name: Ensure servers are stopped
       become: yes  # To escalate privileges and execute commands as root
-      shell: shutdown -h now
+      #shell: shutdown -h now
       # You can also use the command module instead of shell if needed:
-      # command: shutdown -h now
+      command: shutdown -h now
