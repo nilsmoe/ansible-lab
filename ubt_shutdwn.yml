@@ -4,5 +4,5 @@
  become: yes
  become_user: root
  tasks:
-    - name: shutdown linux host
-      shell: shutdown -h now
+  - name: shutdown linux host
+    shell: shutdown -h now
