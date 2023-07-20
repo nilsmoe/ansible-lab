@@ -1,8 +1,8 @@
 ---
 # shutdown linux host
 -hosts: kubernetes
-  become: yes
-  become_user: root
+ become: yes
+ become_user: root
   tasks:
     - name: shutdown linux host
       shell: shutdown -h now
