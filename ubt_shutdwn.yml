@@ -1,7 +1,10 @@
 ---
-- hosts: kubernetes
-  become: yes
-  become_user: root
+- name: Shut down Ubuntu servers
+  hosts: ansible  # Replace with the name of the server group or IP addresses of the servers
+
   tasks:
-   - name: shutdown linux host
-     shell: shutdown -h now
+    - name: Ensure servers are stopped
+      become: yes  # To escalate privileges and execute commands as root
+      shell: shutdown -h now
+      # You can also use the command module instead of shell if needed:
+      # command: shutdown -h now
