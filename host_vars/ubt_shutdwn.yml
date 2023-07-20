@@ -1,0 +1,9 @@
+---
+# shutdown linux host
+-- name: shutdown linux host
+  hosts: ubt_shutdwn
+  become: yes
+  tasks:
+    - name: shutdown linux host
+      shell: shutdown -h now
+```
