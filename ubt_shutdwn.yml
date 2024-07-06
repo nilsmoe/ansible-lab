@@ -1,6 +1,6 @@
 ---
 - name: Shut down Ubuntu servers
-  hosts: kubernetes  # Replace with the name of the server group or IP addresses of the servers
+  hosts: ubuntu  # Replace with the name of the server group or IP addresses of the servers
 
   tasks:
     - name: Ensure servers are stopped
